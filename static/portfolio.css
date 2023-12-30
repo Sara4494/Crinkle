@@ -1,0 +1,491 @@
+/* Start Global Rules*/
+@import url('https://fonts.googleapis.com/css2?family=Amiri+Quran&family=Aref+Ruqaa+Ink:wght@400;700&family=Cairo:wght@300;400;600;700;800&family=EB+Garamond:wght@400;500;600;700;800&family=Jomhuria&family=Josefin+Sans:wght@100;200;300;400;500;600;700&family=Lobster&family=Open+Sans:wght@300;400;500;600;700;800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Reem+Kufi+Ink&family=Roboto:wght@100;300;400;500;700;900&family=Ubuntu:ital@1&family=Work+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap');
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: sans-serif;
+    background-color: #f1f5f9;
+    scroll-behavior: smooth;
+}
+/* Small */
+@media (min-width: 768px) {
+    .container {
+        width: 750px;
+    }
+}
+/* Medium */
+@media (min-width: 992px) {
+    .container {
+        width: 970px;
+    }
+}
+/* Large */
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+a {
+    text-decoration: none;
+}
+ul {
+    list-style: none;
+}
+::-webkit-scrollbar {
+    width: 15px;
+}
+::-webkit-scrollbar-track {
+    background-color: #333;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #ac0909;
+    border-radius: 90px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background-color: red;
+}
+/* End Global Rules*/
+/* Start Header */
+.navbar {
+    padding: 15px;
+    background-color: #eee;
+    box-shadow: 0 0 10px #d8d8d8;
+}
+.navbar .container {
+    position: relative;
+}
+.navbar .container .logo img {
+    width: 100px;
+    border-radius: 50%;
+    transition: .6s;
+    z-index: 4;
+}
+.navbar .container .logo {
+    position: relative;
+}
+.navbar .container .logo:hover img{
+    transform: rotateY(360deg);
+}
+.navbar .container .logo:hover .sec-img{
+    z-index: 515215;
+}
+.navbar .container .logo .sec-img {
+    position: absolute;
+    left: -0px;
+    z-index: -12215;
+}
+.navbar .container .logo {
+    transform: rotateY(360deg);
+    z-index: 1;
+}
+.navbar .container .collapse {
+    position: relative;
+}
+.navbar .container .collapse ul {
+    margin: auto;
+    gap: 30px;
+}
+@media (max-width: 1199px) {
+    .navbar .container .collapse ul {
+        width: 670px;
+        margin-left: 30px;
+    }
+}
+.navbar .container .collapse ul li a {
+    display: block;
+    font-weight: bold;
+    color: black;
+    padding: 10px 20px;
+    letter-spacing: 1px;
+    border-radius: 6px;
+    transition: .3s;
+}
+@media (max-width: 991px) {
+    .navbar .container .collapse ul li a{
+        width: fit-content;
+        margin: 15px 0 0;
+    }
+}
+.navbar .container ul li a.active {
+    background-color: black;
+    color: red;
+}
+.navbar .container ul li a:hover {
+    background-color: black;
+    color: red;
+}
+.navbar .container input[type="search"] {
+    outline: none;
+    border: 1px solid black;
+    padding: 10px 0px 10px 30px;
+    border-radius: 10px;
+    transition: width 0.3s;
+    font-weight: bold;
+    width: 180px;
+    position: relative;
+    caret-color: red;
+}
+@media (max-width: 991px){
+    .navbar .container input[type="search"] {
+        margin-top: 10px;
+    }
+}
+.navbar .container input:focus {
+    width: 230px;
+    box-shadow: 0px 0px 5px 1px red;
+    color: black;
+}
+.navbar .container button {
+    padding: 8px 15px;
+    border-radius: 6px;
+    transition-duration: .5s;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    border-color: #d43048;
+    transition: .6s;
+}
+.navbar .container button a {
+    transition: .3s;
+    color: black;
+}
+.navbar .container button:hover {
+    background-color: black;
+    transform: rotateY(360deg);
+}
+.navbar .container button:hover a {
+    color: red;
+}
+/* End Header */
+/* Start Section */
+.section {
+    color: black;
+}
+.container .text h1 {
+    font-size: 50px;
+    font-weight: bold;
+}
+@media (max-width: 767px) {
+    .container .text h1 {
+        font-size: 40px;
+    }
+}
+@media (max-width: 467px) {
+    .container .text h1 {
+        font-size: 30px;
+    }
+}
+@media (max-width: 360px) {
+    .container .text h1 {
+        font-size: 20px;
+    }
+}
+@media (max-width: 991px) {
+    .section .container .team {
+        flex-wrap: wrap;
+    }
+}
+.section .mahmoud {
+    position: relative;
+    background-color: black;
+    padding: 20px;
+    width: 600px;
+    height: 330px;
+    border-radius: 20px;
+    margin: 20px 20px 50px;
+    text-align: center;
+    transition: .3s;
+    animation: square 7s infinite both;
+}
+@media (max-width: 500px) {
+    .section .mahmoud {
+        height: fit-content;
+    }
+}
+@keyframes square {
+    0%, 20%, 40%, 60%, 80%, 100% {
+        box-shadow: 0px 0px 10px 5px blue;
+    }
+    10%, 30%, 50%, 70%, 90% {
+        box-shadow: 0px 0px 10px 5px red;
+    }
+}
+.section .mahmoud:hover {
+    transform: scale(1.1);
+}
+@media (max-width: 767px) {
+    .section .mahmoud:hover {
+        transform: scale(1);
+    }
+}
+.section .mahmoud .info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+.section .mahmoud .info img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+@media (max-width: 1199px) {
+    .section .mahmoud .info img {
+        width: 120px;
+        height: 120px;
+    }
+}
+@media (max-width: 767px) {
+    .section .mahmoud .info img {
+        margin: 0 auto;
+    }
+}
+.section .mahmoud .info h2 {
+    padding-left: 15px;
+    font-weight: bold;
+    color: #1ac6fa;
+    font-family: 'Times New Roman', Times, serif;
+}
+@media (max-width: 1199px) {
+    .section .mahmoud .info h2 {
+        font-size: 27px;
+    }
+    .section .mahmoud .info h4 {
+        font-size: 20px;
+    }
+}
+@media (max-width: 379px) {
+    .section .mahmoud .info h2 {
+        font-size: 20px;
+    }
+}
+@media (max-width: 379px) {
+    .section .mahmoud .info h4 {
+        font-size: 16px;
+    }
+}
+.section .mahmoud .info h4 {
+    color: red;
+    font-weight: bold;
+}
+.section .mahmoud .content {
+    color: white;
+}
+.section .sara {
+    position: relative;
+    background-color: black;
+    padding: 20px;
+    width: 600px;
+    height: 330px;
+    border-radius: 20px;
+    margin: 20px 20px 50px;
+    text-align: center;
+    transition: .3s;
+    animation: square-two 7s infinite both;
+}
+@keyframes square-two {
+    0%, 20%, 40%, 60%, 80%, 100% {
+        box-shadow: 0px 0px 10px 5px red;
+    }
+    10%, 30%, 50%, 70%, 90% {
+        box-shadow: 0px 0px 10px 5px blue;
+    }
+}
+@media (max-width: 767px) {
+    .section .sara .info img {
+        margin: 0 auto;
+    }
+    .section .sara .info h2,
+    .section .sara .info h4 {
+        margin: 0;
+    }
+}
+@media (max-width: 500px) {
+    .section .sara {
+        height: fit-content;
+    }
+}
+.section .sara:hover {
+    transform: scale(1.1);
+}
+@media (max-width: 767px) {
+    .section .sara:hover {
+        transform: scale(1);
+    }
+}
+.section .sara .info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+.section .text-info {
+}
+@media (max-width: 767px) {
+    .section .text-info {
+        margin: 0 auto 0 ;
+    }
+}
+@media (max-width: 1199px) {
+    .section .info .info img {
+        width: 120px;
+        height: 120px;
+    }
+}
+.section .sara .info h2 {
+    padding-left: 15px;
+    font-weight: bold;
+    color: #1ac6fa;
+    font-family: 'Times New Roman', Times, serif;
+}
+.section .sara .text-info h4 {
+    color: red;
+    padding-left: 20px;
+    font-weight: bold;
+}
+@media (max-width: 1199px) {
+    .section .sara .info h2 {
+        font-size: 27px;
+    }
+    .section .sara .info h4 {
+        font-size: 20px;
+    }
+}
+@media (max-width: 379px) {
+    .section .sara .info h2 {
+        font-size: 20px;
+    }
+}
+@media (max-width: 379px) {
+    .section .sara .info h4 {
+        font-size: 16px;
+    }
+}
+.section .info img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+@media (max-width: 1199px) {
+    .section .sara .info img {
+        width: 120px;
+        height: 120px;
+    }
+}
+.section .sara .content {
+    color: white;
+}
+.section .contact {
+    text-align: center;
+    position: relative;
+    margin-bottom: 100px;
+}
+.section .contact p {
+    font-size: 20px;
+    font-weight: bold;
+}
+.section .contact ul {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+@media (max-width: 350px) {
+    .section .contact ul {
+        position: absolute;
+        top: 80%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+.section .contact ul li a svg {
+    transition: .3s;
+}
+.contact .facebook {
+    background-color: #1877f2;
+}
+.contact .twitter {
+    background-color: #1da1f2;
+}
+.contact .instagram {
+    background-color: #CD486B;
+}
+.contact .tiktok {
+    background-color: #ff0000;
+}
+.contact svg:hover {
+    transform: scale(1.5);
+    background-color: black;
+}
+/* End Section */
+/* Start subscribe */
+.subscribe {
+    background-color: black;
+}
+.subscribe input[type="text"] {
+    border: none;
+    border-bottom: 1px solid red;
+    outline: none;
+    caret-color: red;
+}
+.foot::placeholder {
+    color: white;
+}
+.subscribe input[type="submit"] {
+    background-color: red;
+    color: black;
+    font-weight: bold;
+}
+.subscribe input[type="submit"]:hover {
+    color: white;
+}
+/* End subscribe */
+/* Start Footer */
+.footer {
+    background-color: black;
+}
+.footer .copyright > span {
+    color: red;
+}
+.footer .copyright div span {
+    color: red;
+}
+.footer .contact ul svg {
+    width: 20px;
+    height: 20px;
+    transition: .3s;
+}
+.contact-us .btn {
+    background-color: red;
+    color: black;
+    font-weight: bold;
+    transition: .3s;
+}
+.contact-us .btn:hover {
+    background-color: transparent;
+    color: white;
+    border: 1px solid red;
+}
+.footer .links ul li a,
+.footer .about-us ul li a {
+    color: #999;
+}
+.footer .facebook {
+    background-color: #1877f2;
+}
+.footer .twitter {
+    background-color: #1da1f2;
+}
+.footer .instagram {
+    background-color: #CD486B;
+}
+.footer .tiktok {
+    background-color: #ff0000;
+}
+.footer svg:hover {
+    transform: scale(1.5);
+    background-color: black;
+}
+/* End Footer */

@@ -1,0 +1,181 @@
+ 
+
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crinkle</title>
+    <!-- Bootstrap.CSS -->
+    <link rel="stylesheet" href="{%  static 'css/bootstrap.min.css' %}">
+    <!-- Font Auesome Library -->
+    <link rel="stylesheet" href="{%  static 'css/all.min.css' %}">
+   
+    <link rel="stylesheet" href="{% static 'register.css' %}">
+  
+    <!-- Render All Elements Normally -->
+    <link rel="stylesheet" href="{%  static 'css/normalize.css' %}">
+    <!-- Google Font Roboto -->
+</head>
+
+
+<body> 
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container">
+            <div class="logo">
+                <a href="{% url 'home' %}"><img src="{% static 'images/logo.jpg' %}" alt="Logo"></a>
+                <a class="sec-img" href="{% url 'home' %}"><img src=" {% static 'images/log.jpeg' %}" alt="Logo"></a>
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="{% if request.path == '/' %}active{% endif %}"><a href="{% url 'home' %}">Home</a></li>
+                    <li class="{% if request.path == '/menu/' %}active{% endif %}"><a href="#menu">Menu</a></li>
+                    <li class="{% if request.path == '/about/' %}active{% endif %}"><a href="#about">About Us</a></li>
+                    <li class="{% if request.path == '/services/' %}active{% endif %}"><a href="{% url 'services' %}">Services</a></li>
+                    <li class="{% if request.path == '/contact/' %}active{% endif %}"><a href="#contact">Contact US</a></li>
+                </ul>
+                <form method="GET" action="{% url 'home' %}" class="d-flex" role="search">
+                    <input class="form-control me-2 p-relative" name="search" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn-search" type="submit"><a href="#">Search</a></button>
+                </form>
+            </div>
+        </div>
+    </nav>
+<div class="section">
+    <div class="container">
+        <div class="register">
+            <h2>LOGIN</h2>
+                <form method="post" action="{% url 'register' %}">
+                    {% csrf_token %}
+                    <div class="text">
+                    <label for="name">First name</label> <br>
+                    <input id="name" type="text" name="name" placeholder="Name">
+                    </div>
+                    <div class="mail">
+                    <label for="mail">Email</label> <br>
+                    <input id="mail" type="email" name="mail" placeholder="Email">
+                    </div>
+                    <div class="password">
+                    <label for="password">Password</label> <br>
+                    <input id="password" type="password" name="pass" placeholder="Password">
+                    </div>
+                    <div class="password">
+                    <label for="password">Confirm password</label> <br>
+                    <input id="password" type="password" name="pass-confirm" placeholder="Confirm password">
+                    </div>
+                    <div class="foot"> </div>
+                    <input type="submit" value="Register" name="login">
+                    <p class="text-center">Social Login Option</p>
+                    <ul class="list-unstyled d-flex align-items-center mb-5 gap-3">
+                        <li>
+                            <a href="https://www.facebook.com/CrinkleEgypt" target="_blank"><i
+                                    class="fa-brands fa-facebook facebook "></i></a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/crinkle.egypt/" target="_blank"><i
+                                    class="fa-brands fa-instagram instagram"></i></a>
+                        </li>
+                        <li>
+                            <a href="https://www.tiktok.com/@crinkleegypt?is_from_webapp=1&sender_device=pc"
+                                target="_blank"><i class="fa-brands fa-tiktok tiktok"></i></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa-solid fa-phone phone"></i></a>
+                        </li>
+                    </ul>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Start subscribe -->
+    <div class="subscribe pt-5 pb-5 mb-0 text-white-50 text-center text-md-start" id="contact-us">
+        <div class="container">
+            <form class="row d-flex align-items-center">
+                <div class="col-md-6 col-lg-3">
+                    <div class="fw-bold fs-5 mb-3">Subscribe to our Newsletter:</div>
+                </div>
+                <div class="col-md-6 col-lg-7 mb-5">
+                    <input class="w-100 text-light p-2 bg-transparent" type="text" placeholder="Enter Email Address">
+                </div>
+                <div class="col-md-6 col-lg-2">
+                    <input class="btn rounded-pill " type="submit" value="Subscribe">
+                </div>
+            </form>
+        </div>
+    </div>
+
+<div class="footer pt-5 pb-5 text-white-50 text-center text-md-start">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-lg-4">
+                <div class="info mb-5">
+                    <img class="mb-4" src="../CSS/imgs/logo.png" alt="">
+                    <p class="mb-5">Crinkle Is Chicken Burger And Fried Chicken Restaurant Based In Egypt.</p>
+                    <div class="copyright">
+                        Created By <span>Graphberry</span>
+                        <div>© 2023 - <span>Al-Sayyad</span> And <span>Sara</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-2">
+                <div class="links">
+                    <h5 class="text-light">Links</h5>
+                    <ul class="list-unstyled lh-lg">
+                        <li><a href="{% url 'home' %}">Home</a></li>
+                        <li><a href="{% url 'services' %}">Our Services</a></li>
+                        <li><a href="{% url 'portfolio' %}">Portfolio</a></li>
+                        <li><a href="#">Support</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-mg-6 col-lg-2">
+                <div class="about-us">
+                    <h5 class="text-light">About Us</h5>
+                    <ul class="list-unstyled lh-lg">
+                        <li><a href="{% url 'login' %}">Sign In</a></li>
+                        <li><a href="{% url 'register' %}">Register</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="contact-us">
+                    <h5 class="text-light mb-3">Contact Us</h5>
+                    <p>Get in touch with us via mail phone. We are waiting for your call or message</p>
+                    <div class="d-flex justify-content-center mt-5 mb-5">
+                        <a class="btn main-btn rounded-pill w-100" href="mailto:graphberry@gmail.com">graphberry@gmail.com</a>
+                    </div>
+                    <div class="contact">
+                        <ul class="list-unstyled d-flex align-items-center gap-3 mt-5">
+                            <li><a class="d-block text-light" href="https://www.facebook.com/CrinkleEgypt" target="_blank">
+                                <i class="fa-brands fa-facebook fa-lg facebook rounded-circle p-2"></i></a>
+                            </li>
+                            <li><a class="d-block text-light" href="https://www.instagram.com/crinkle.egypt" target="_blank">
+                                <i class="fa-brands fa-instagram fa-lg instagram rounded-circle p-2"></i></a>
+                            </li>
+                            <li><a class="d-block text-light"
+                                    href="https://www.tiktok.com/@crinkleegypt?is_from_webapp=1&sender_device=pc"
+                                    target="_blank"><i class="fa-brands fa-tiktok fa-lg tiktok rounded-circle p-2"></i></a>
+                            </li>
+                            <li><a class="d-block text-light"
+                                    href="https://x.com/CrinkleEgypt?t=82bL6iNHJ1lgVH19eat0oQ&s=09"
+                                    target="_blank"><i class="fa-brands fa-x-twitter rounded-circle fa-lg p-2 twitter"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<!-- End Footer -->
+<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'js/all.min.js' %}"></script>
+</body>
+</html>

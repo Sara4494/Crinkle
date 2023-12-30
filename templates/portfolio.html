@@ -1,0 +1,82 @@
+{% extends "base.html" %} 
+{% endblock main %}
+{% load static %}
+
+    <!-- End Header -->
+    <div class="section text-center">
+        <div class="container">
+            <div class="text">
+                <h1>Work Team_Al-Sayyad</h1>
+            </div>
+            <div class="team d-flex text-center">
+                <div class="mahmoud">
+                    <div class="info">
+                        <img src="{% static 'images/mahmod.jpeg' %}" alt="Front-End">
+                        <div class="text-info">
+                            <h2>Mahmoud Al-Sayyad</h2>
+                            <h4>Front-End Developer</h4>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <p>Greetings! I'm Mahmoud Ali, a creative front-end developer with a knack for translating ideas
+                            into visually stunning and user-friendly interfaces. Proficient in HTML, CSS, and
+                            JavaScript, I specialize in building responsive and intuitive web designs that elevate user
+                            experiences.
+                        </p>
+                    </div>
+                </div>
+                <div class="sara">
+                    <div class="info">
+                        <img src="{% static 'images/sara.jpeg' %}" alt="Front-End">
+                        <div class="text-info">
+                            <h2>Sarah Reiad</h2>
+                            <h4>Back-End Developer</h4>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <p>Hello, Welcome! I'm Sara riade, a dedicated Python back-end developer specializing in Django.
+                            With a passion for crafting efficient and scalable solutions, I thrive in delivering
+                            high-quality code that powers
+                            seamless web applications and API`s
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="contact">
+                <p>Contact customer service, always at your service.</p>
+                <h2>Connect with us</h2>
+                <ul class="list-unstyled d-flex align-items-center gap-3 mt-5 ">
+                    <li><a class="text-light" href="https://www.facebook.com/CrinkleEgypt" target="_blank"><i
+                                class="fa-brands fa-facebook fa-lg facebook rounded-circle p-2"></i></a>
+                    </li>
+                    <li><a class="text-light" href="https://www.instagram.com/crinkle.egypt" target="_blank"><i
+                                class="fa-brands fa-instagram fa-lg instagram rounded-circle p-2"></i></a>
+                    </li>
+                    <li><a class="text-light"
+                            href="https://www.tiktok.com/@crinkleegypt?is_from_webapp=1&sender_device=pc"
+                            target="_blank"><i class="fa-brands fa-tiktok fa-lg tiktok rounded-circle p-2"></i></a></li>
+                    <li><a class="text-light" href="https://x.com/CrinkleEgypt?t=82bL6iNHJ1lgVH19eat0oQ&s=09"
+                            target="_blank"><i class="fa-brands fa-x-twitter rounded-circle fa-lg p-2 twitter"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- Start subscribe -->
+    <div class="subscribe pt-5 pb-5 mb-0 text-white-50 text-center text-md-start" id="contact-us">
+        <div class="container">
+            <form class="row d-flex align-items-center">
+                <div class="col-md-6 col-lg-3">
+                    <div class="fw-bold fs-5 mb-3">Subscribe to our Newsletter:</div>
+                </div>
+                <div class="col-md-6 col-lg-7 mb-5">
+                    <input class="w-100 text-light p-2 bg-transparent" type="text" placeholder="Enter Email Address">
+                </div>
+                <div class="col-md-6 col-lg-2">
+                    <input class="btn rounded-pill " type="submit" value="Subscribe">
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- End subscribe -->
+    {% endblock main %}
