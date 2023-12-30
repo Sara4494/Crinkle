@@ -51,6 +51,7 @@ ul {
     padding: 15px;
     background-color: #eee;
     box-shadow: 0 0 10px #d8d8d8;
+    overflow: hidden;
 }
 .navbar .container {
     position: relative;
@@ -167,8 +168,21 @@ ul {
     font-weight: bold;
     text-align: center;
 }
+@media (max-width: 767px) {
+    .section .container h1 {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 15px;
+    }
+}
 .section .container .text h2 {
     font-weight: bold;
+}
+@media (max-width: 767px) {
+    .section .container h2 {
+        font-size: 17px;
+        font-weight: bold;
+    }
 }
 .section .container .text .frist-ul {
     font-weight: bold;
@@ -267,6 +281,17 @@ ul {
     width: 20px;
     height: 20px;
     transition: .3s;
+}
+.footer .contact-us {
+    position: relative;
+}
+@media (max-width: 767px) {
+    .footer .contact ul {
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
 }
 .contact-us .btn {
     background-color: red;

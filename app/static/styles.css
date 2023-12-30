@@ -1,5 +1,3 @@
-/* Start Global Rules*/
-@import url('https://fonts.googleapis.com/css2?family=Amiri+Quran&family=Aref+Ruqaa+Ink:wght@400;700&family=Cairo:wght@300;400;600;700;800&family=EB+Garamond:wght@400;500;600;700;800&family=Jomhuria&family=Josefin+Sans:wght@100;200;300;400;500;600;700&family=Lobster&family=Open+Sans:wght@300;400;500;600;700;800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Reem+Kufi+Ink&family=Roboto:wght@100;300;400;500;700;900&family=Ubuntu:ital@1&family=Work+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap');
 * {
     box-sizing: border-box;
     margin: 0;
@@ -53,6 +51,7 @@ ul {
     padding: 15px;
     background-color: #eee;
     box-shadow: 0 0 10px #d8d8d8;
+    overflow: hidden;
 }
 .navbar .container {
     position: relative;
@@ -159,245 +158,133 @@ ul {
     color: red;
 }
 /* End Header */
-/* Start Landing */
-.landing {
+/* Start Section */
+.section {
     position: relative;
 }
-.landing .video {
-    border-radius: 6px;
+.section {
     position: relative;
+    height: 600px;
 }
-.landing .video::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background-color: rgb(0 0 0 / 30%);
-    z-index: 2;
-}
-.landing .text {
-    width: 100%;
-    background-color: rgba(184, 201, 204, 0.3);
+.section .container .sign-in {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    text-align: center;
-    z-index: 1000;
-    transition: .3s;
 }
-@media (max-width: 767px) {
-    .landing .text {
-        height: 50%;
-        
-    }
-}
-.landing .text h1 {
-    color: red;
-    font-size: 60px;
+.section .container .sign-in h2 {
+    color: black;
     font-weight: bold;
-    font-family: 'EB Garamond', serif;
-    text-shadow: 5px 5px 1px #111;
-    text-transform: capitalize;
+    font-size: 40px;
+    padding-bottom: 20px;
 }
-@media (max-width: 767px) {
-    .landing .text h1 {
-        font-size: 20px;
-    }
+.section .container .sign-in form label {
+font-size: 18px;
+font-weight: bold;
 }
-.landing .text p {
-    color: white;
-    font-size: 18px;
-    font-weight: bold;
-    text-transform: capitalize;
-    letter-spacing: 1.5px;
-}
-@media (max-width: 767px) {
-    .landing .text p {
-        font-size: 12px;
-        margin: 5px;
-    }
-}
-.landing .text button {
-    background-color: red;
-    outline: none;
-    border: 1px solid #ac0909;
-    border: 1px solid black;
-    padding: 10px 20px;
+.section .container .sign-in .mail input[type="text"] {
+    width: 500px;
+    padding: 10px;
     border-radius: 10px;
-    margin: 15px;
-    font-weight: bold;
-    text-transform: uppercase;
+    margin-bottom: 30px;
+    outline: none;
+    border: 1px solid #ddd;
+}
+.section .container .sign-in .password input[type="password"] {
+    width: 500px;
+    padding: 10px;
+    border-radius: 10px;
+    outline: none;
+    border: 1px solid #ddd;
+    margin-bottom: 30px;
+}
+.section .container .sign-in input[type="submit"] {
+    outline: none;
+    padding: 10px 50px;
+    background-color: black;
+    color: red;
+    border-radius: 10px;
+    border: 1px solid red;
+    transition: .3s;
+    margin-bottom: 30px;
+}
+.section .container .sign-in input[type="submit"]:hover {
+    background: none;
+}
+.section .container .sign-in p {
+    font-size: 18px;
+}
+.section .container .contact {
+    position: relative;
+    margin-top: 30px;
+    margin-bottom: 60px;
+}
+.section .container .sign-in ul{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.section .container .sign-in ul li a svg {
+    color: #4272ff;
+    padding: 10px;
+    border-radius: 50%;
+    color: white;
     transition: .3s;
 }
-@media (max-width: 767px) {
-    .landing .text button {
-        padding: 3px 15px;
-        margin: 0;
-    }
+.section .container .sign-in ul li a .facebook {
+    background-color: #1877f2;
 }
-.landing .text button a {
-    color: black;
+.section .container .sign-in ul li a .phone {
+    background-color: #1da1f2;
 }
-@media (max-width: 767px) {
-    .landing .text button a {
-        font-size: 14px;
-    }
+.section .container .sign-in ul li a .instagram {
+    background-color: #CD486B;
 }
-.landing .text button:hover {
-    background-color: black;
-    border: 1px solid #ac0909;
+.section .container .sign-in ul li a .tiktok {
+    background-color: #ff0000;
 }
-.landing .text button:hover a {
-    color: red;
+.section .container .sign-in ul li a svg:hover {
+    transform: scale(1.5);
 }
-/* End Landing */
-/* Start Sec */
-.main-title {
-    margin: 50px auto 80px;
-    border: 2px solid black;
-    padding: 10px 20px;
-    font-size: 30px;
-    font-weight: bold;
-    width: fit-content;
-    color: black;
-    z-index: 1;
+.section .container .sign-in a {
+    color: #1877f2;
+    font-size: 18px;
+    transition: .3s;
+    padding-bottom: 5px;
     position: relative;
-    transform: .3s;
-    text-transform: uppercase;
-    border-radius: 6px;
 }
-.main-title::before,
-.main-title::after {
+.section .container .sign-in .creat::before {
     content: "";
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 12px;
-    height: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -10%;
+    width: 0%;
+    height: 1px;
     background-color: red;
-    border-radius: 50%;
 }
-.main-title::before {
-    left: -30px;
+.section .container .sign-in .creat:hover:before {
+    animation: move 1s both;
 }
-.main-title::after {
-    right: -30px;
-}
-.main-title:hover::before {
-    z-index: -1;
-    animation: left-move 0.5s linear forwards;
-}
-.main-title:hover::after {
-    z-index: -1;
-    animation: right-move 0.5s linear forwards;
-}
-.main-title:hover {
-    color: white;
-    border: 2px solid white;
-    transition-delay: 0.5s;
-    font-weight: bold;
-}
-@keyframes left-move {
-    50% {
-        left: 0;
-        width: 12px;
-        height: 12px;
+@keyframes move {
+    0% {
+        width: 0%;
     }
     100% {
         width: 100%;
-        height: 100%;
-        border-radius: 0;
-        left: 0;
     }
 }
-@keyframes right-move {
-    50% {
-        right: 0;
-        width: 12px;
-        height: 12px;
-    }
-    100% {
-        width: 100%;
-        height: 100%;
-        border-radius: 0;
-        right: 0;
-    }
-}
-.section {
-    position: relative;
-    padding-bottom: 100px;
+.section .container .sign-in .creat:hover::before {
+    width: 50%;
 }
 @media (max-width: 767px) {
-    .section .container .card {
-        margin: auto;
-        border-radius: 20px;
+    .section .container .sign-in .mail input[type="text"],
+    .section .container .sign-in .password input[type="password"] {
+        width: 300px;
     }
 }
-.section .container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 40px;
-    position: relative;
-}
-.section .container .card {
-    overflow: hidden;
-    transition: .5s;
-    position: relative;
-    border-radius: 20px;
-    height: 500px;
-    color: black;
-}
-.section .container .card:hover {
-    transform: translateY(-30px);
-}
-.section .container .card img {
-    width: 100%;
-    max-width: 100%;
-    border: 2px solid #e6e6e7;
-    height: 300px;
-}
-.section .container .icons {
-    padding: 15px;
-}
-.section .container .icons ul {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    margin: 0;
-    position: relative;
-    visibility: hidden;
-    transition: .3s;
-    border-top: 2px solid #e6e6e7;
-    padding-top: 20px;
-}
-.section .container .card:hover .icons ul {
-    visibility: visible;
-}
-.section .container .icons ul li {
-    padding-left: 20px;
-    font-size: 20px;
-}
-.section .container .icons ul li a .i {
-    color: #4272ff;
-}
-.section .container .card .icons ul .i-mov {
-    position: absolute;
-    right: -10px;
-    top: 50%;
-    color: red;
-}
-.section .container .card:hover .icons ul .i-mov {
-    animation: moving 0.6s linear infinite;
-}
-@keyframes moving {
-    100% {
-        transform: translateX(10px);
-    }
-}
-/* End Sec */
+/* End Section */
 /* Start subscribe */
 .subscribe {
     background-color: black;
@@ -406,6 +293,7 @@ ul {
     border: none;
     border-bottom: 1px solid red;
     outline: none;
+    caret-color: red;
 }
 .foot::placeholder {
     color: white;
@@ -434,6 +322,17 @@ ul {
     height: 20px;
     transition: .3s;
 }
+.footer .contact-us {
+    position: relative;
+}
+@media (max-width: 767px) {
+    .footer .contact ul {
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
 .contact-us .btn {
     background-color: red;
     color: black;
@@ -445,10 +344,14 @@ ul {
     color: white;
     border: 1px solid red;
 }
+.footer .links ul li a,
+.footer .about-us ul li a {
+    color: #999;
+}
 .footer .facebook {
     background-color: #1877f2;
 }
-.footer .phone {
+.footer .twitter {
     background-color: #1da1f2;
 }
 .footer .instagram {

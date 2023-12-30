@@ -51,6 +51,7 @@ ul {
     padding: 15px;
     background-color: #eee;
     box-shadow: 0 0 10px #d8d8d8;
+    overflow: hidden;
 }
 .navbar .container {
     position: relative;
@@ -160,9 +161,6 @@ ul {
 /* Start Section */
 .section {
     position: relative;
-}
-.section {
-    position: relative;
     height: 800px;
 }
 .section .container .register {
@@ -176,6 +174,9 @@ ul {
     font-weight: bold;
     font-size: 40px;
     padding-bottom: 20px;
+}
+.section .container .register form {
+    position: relative;
 }
 .section .container .register form label {
 font-size: 18px;
@@ -230,10 +231,15 @@ font-weight: bold;
 .section .container .register p {
     font-size: 18px;
 }
-.section .container .register ul{
+.section .container .register .contact {
     position: relative;
-    left: 17%;
+}
+.section .container .register ul{
+    position: absolute;
+    left: 50%;
     top: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: 20px;
 }
 .section .container .register ul li a svg {
     color: #4272ff;
@@ -333,6 +339,17 @@ font-weight: bold;
     width: 20px;
     height: 20px;
     transition: .3s;
+}
+.footer .contact-us {
+    position: relative;
+}
+@media (max-width: 767px) {
+    .footer .contact ul {
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
 }
 .contact-us .btn {
     background-color: red;

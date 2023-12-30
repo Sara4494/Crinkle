@@ -51,6 +51,7 @@ ul {
     padding: 15px;
     background-color: #eee;
     box-shadow: 0 0 10px #d8d8d8;
+    overflow: hidden;
 }
 .navbar .container {
     position: relative;
@@ -163,7 +164,7 @@ ul {
 }
 .section {
     position: relative;
-    height: 800px;
+    height: 600px;
 }
 .section .container .sign-in {
     position: absolute;
@@ -213,10 +214,16 @@ font-weight: bold;
 .section .container .sign-in p {
     font-size: 18px;
 }
-.section .container .sign-in ul{
+.section .container .contact {
     position: relative;
-    left: 17%;
+    margin-top: 30px;
+    margin-bottom: 60px;
+}
+.section .container .sign-in ul{
+    position: absolute;
+    left: 50%;
     top: 50%;
+    transform: translate(-50%, -50%);
 }
 .section .container .sign-in ul li a svg {
     color: #4272ff;
@@ -314,6 +321,17 @@ font-weight: bold;
     width: 20px;
     height: 20px;
     transition: .3s;
+}
+.footer .contact-us {
+    position: relative;
+}
+@media (max-width: 767px) {
+    .footer .contact ul {
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
 }
 .contact-us .btn {
     background-color: red;

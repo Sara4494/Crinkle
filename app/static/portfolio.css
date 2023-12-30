@@ -53,6 +53,7 @@ ul {
     padding: 15px;
     background-color: #eee;
     box-shadow: 0 0 10px #d8d8d8;
+    overflow: hidden;
 }
 .navbar .container {
     position: relative;
@@ -162,6 +163,7 @@ ul {
 /* Start Section */
 .section {
     color: black;
+    margin-bottom: 100px;
 }
 .container .text h1 {
     font-size: 50px;
@@ -321,8 +323,6 @@ ul {
     margin-bottom: 20px;
     flex-wrap: wrap;
 }
-.section .text-info {
-}
 @media (max-width: 767px) {
     .section .text-info {
         margin: 0 auto 0 ;
@@ -378,9 +378,8 @@ ul {
     color: white;
 }
 .section .contact {
-    text-align: center;
     position: relative;
-    margin-bottom: 100px;
+    margin-bottom: 50px;
 }
 .section .contact p {
     font-size: 20px;
@@ -388,16 +387,16 @@ ul {
 }
 .section .contact ul {
     position: absolute;
-    top: 50%;
     left: 50%;
-    transform: translateX(-50%);
+    top: 80%;
+    transform: translate(-50%, -50%);
 }
-@media (max-width: 350px) {
+@media (max-width: 767px) {
     .section .contact ul {
         position: absolute;
-        top: 80%;
         left: 50%;
-        transform: translateX(-50%);
+        top: 80%;
+        transform: translate(-50%, -50%);
     }
 }
 .section .contact ul li a svg {
@@ -456,6 +455,17 @@ ul {
     width: 20px;
     height: 20px;
     transition: .3s;
+}
+.footer .contact-us {
+    position: relative;
+}
+@media (max-width: 767px) {
+    .footer .contact ul {
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
 }
 .contact-us .btn {
     background-color: red;
