@@ -5,6 +5,9 @@ from .models import CustomUser
 import re
 
 class RegisterSerializer(serializers.ModelSerializer):
+    phone_number = serializers.CharField(max_length=11, error_messages={
+        'max_length': 'Invalid phone number'
+    })
     class Meta:
         model = CustomUser
         fields = ['first_name', 'email', 'phone_number', 'password']
@@ -19,13 +22,9 @@ class RegisterSerializer(serializers.ModelSerializer):
  
         value = value.replace(" ", "").replace("-", "")
  
-        if len(value) != 11:
-            raise serializers.ValidationError("Phone number must be exactly 11 digits.")
  
-        if not re.match(r'^(010|011|012|015)\d{8}$', value):
-            raise serializers.ValidationError("Phone number must start with 010, 011, 012, or 015.")
-
-        return value
+        if len(value) != 11 or len(value) > 11 or not re.match(r'^(010|011|012|015)\d{8}$', value):
+            raise serializers.ValidationError("Invalid phone number")
 
     def validate_password(self, value):
         if len(value) < 8:
