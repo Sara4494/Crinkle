@@ -15,20 +15,24 @@ class RegisterView(generics.CreateAPIView):
             user = serializer.save()
             return Response(
                 {"message": "User created successfully!", "user": serializer.data},
-                status=status.HTTP_201_CREATED
+                status=status.HTTP_200_OK
             )
-
         else:
             error_messages = {}
             for field, errors in serializer.errors.items():
                 if field == 'email':
                     error_messages[field] = ["A user with this email already exists."]
-                
+                elif field == 'phone_number':
+                    # تخصيص الرسائل عند حدوث خطأ في رقم الهاتف
+                    for error in errors:
+                        if "already exists" in error:
+                            error_messages[field] = ["A user with this phone number already exists."]
+                        else:
+                            error_messages[field] = [error]  # رسائل التحقق الخاصة برقم الهاتف مثل الطول أو البادئة
                 else:
                     error_messages[field] = [str(e) for e in errors]
 
             return Response({"errors": error_messages}, status=status.HTTP_400_BAD_REQUEST)
-
 
 class LoginView(APIView):
     serializer_class = LoginSerializer
