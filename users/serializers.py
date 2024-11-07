@@ -23,7 +23,7 @@ class RegisterSerializer(serializers.ModelSerializer):
         value = value.replace(" ", "").replace("-", "")
  
  
-        if len(value) != 11 or len(value) > 11 or not re.match(r'^(010|011|012|015)\d{8}$', value):
+        if len(value) != 11 or not re.match(r'^(010|011|012|015)\d{8}$', value):
             raise serializers.ValidationError("Invalid phone number")
 
     def validate_password(self, value):
