@@ -3,6 +3,7 @@ from rest_framework import serializers
 from django.contrib.auth import authenticate
 from .models import CustomUser
 import re
+
 class RegisterSerializer(serializers.ModelSerializer):
     class Meta:
         model = CustomUser
@@ -15,17 +16,15 @@ class RegisterSerializer(serializers.ModelSerializer):
         return value
 
     def validate_phone_number(self, value):
-        if not value:
-            raise serializers.ValidationError("Phone number is required.")
-        
-        # تحقق من طول رقم الهاتف
+ 
+        value = value.replace(" ", "").replace("-", "")
+ 
         if len(value) != 11:
             raise serializers.ValidationError("Phone number must be exactly 11 digits.")
-        
-        # تحقق من أن رقم الهاتف يبدأ بإحدى الأرقام المحددة
-        if not re.match(r'^(010|011|012|015)\d{7}$', value):
+ 
+        if not re.match(r'^(010|011|012|015)\d{8}$', value):
             raise serializers.ValidationError("Phone number must start with 010, 011, 012, or 015.")
-        
+
         return value
 
     def validate_password(self, value):
