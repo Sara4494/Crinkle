@@ -31,7 +31,7 @@
       {
           "error_messages": {
               "email": ["A user with this email already exists."],
-              "phone_number": ["A user with this phone number already exists."],
+              "phone_number": ["A user with this phone number already exists"] ,
               "password": ["Password must be at least 8 characters long."]
           }
       }

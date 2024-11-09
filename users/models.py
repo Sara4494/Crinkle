@@ -9,14 +9,7 @@ class CustomUserManager(BaseUserManager):
         if not phone_number:
             raise ValueError('Phone number is required.')
 
-        # تحقق من طول رقم الهاتف
-        if len(phone_number) != 11:
-            raise ValueError('Phone number must be 11 digits.')
-        
-        # تحقق من أن رقم الهاتف يبدأ بـ 010, 011, 012, أو 015
-        if not re.match(r'^(010|011|012|015)\d{7}$', phone_number):
-            raise ValueError('Phone number must start with 010, 011, 012, or 015.')
-
+   
         # تحقق من كلمة السر
         if password and len(password) < 8:
             raise ValueError('Password must be at least 8 characters long.')

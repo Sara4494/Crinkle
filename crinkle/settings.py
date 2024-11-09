@@ -24,11 +24,13 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'corsheaders',  
     'users',
+    'Cart',
+    'Menu'
 ]
 
  
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",  
+    "http://localhost:5173",  
      
 ]
 
@@ -41,6 +43,7 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.TokenAuthentication',
     ],
 }
+ 
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',  
@@ -100,18 +103,22 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
+import os
 # Internationalization
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
  
-STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'base/static')
+]
 
- 
-MEDIA_URL = '/media/'  
-MEDIA_ROOT = BASE_DIR / 'media/'  
+# Media files
+MEDIA_URL = "/media/"
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  
 
  
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
