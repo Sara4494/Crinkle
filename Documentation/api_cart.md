@@ -1,205 +1,140 @@
+# API Documentation - Cart and Menu Management
 
-# API Documentation for Cart System
+## Overview
+This API allows users to interact with a shopping cart and menu items, either while logged in or as guests. Users can add, view, and remove items from their cart.
 
-This document describes the API endpoints related to managing the user's cart, including adding products to the cart and interacting with menu items.
-## **3. Get Menu List**
-
-**URL**: `http://127.0.0.1:8000/menu/menu-cards/`
-
-**Method**: `GET`
-
-**Response**:
-- **Success (200 OK)**:
-```json
-[
-  {
-    "id": 1,
-    "name": "Item Name 1",
-    "description": "Description of item 1",
-    "price": 10.0,
-    "image": "http://example.com/image1.jpg"
-  },
-  {
-    "id": 2,
-    "name": "Item Name 2",
-    "description": "Description of item 2",
-    "price": 20.0,
-    "image": "http://example.com/image2.jpg"
-  }
-]
-```
-
-**Description**: This endpoint allows the user to get the list of all available menu items.
-
-----
-
-## 1. Add to Cart
-
-**Endpoint**: `POST http://127.0.0.1:8000/cart/add-to-cart/`
-
-This endpoint allows users to add menu items to their cart.
-
-### Request
-
-#### URL
-`http://127.0.0.1:8000/cart/add-to-cart/`
-
-#### Headers
-- **Authorization**: `Token <your_token_here>`
-
-#### Body (JSON)
-
-```json
-{
-    "menu_item": <menu_item_id>,
-    "quantity": <quantity>
-}
-```
-
-- **menu_item**: The ID of the menu item to be added to the cart. This is a required field.
-- **quantity**: The number of items to add to the cart (default is 1 if not provided).
-
-#### Example Request
-
-```json
-{
-    "menu_item": 1,
-    "quantity": 2
-}
-```
-
-### Response
-
-#### Success Response
-- **Status Code**: `201 Created`
-- **Body**:
-
-```json
-{
-    "message": "Item added to cart successfully."
-}
-```
-
-#### Error Response (Invalid Product ID)
-- **Status Code**: `404 Not Found`
-- **Body**:
-
-```json
-{
-    "error": "Menu item not found."
-}
-```
-
-#### Error Response (Missing Menu Item)
-- **Status Code**: `400 Bad Request`
-- **Body**:
-
-```json
-{
-    "error": "Menu item is required."
-}
-```
-
-#### Error Response (Invalid Quantity)
-- **Status Code**: `400 Bad Request`
-- **Body**:
-
-```json
-{
-    "error": "Invalid quantity."
-}
-```
+## Endpoints
 
 ---
 
-## 2. View Cart
+### 1. Menu Items
+Retrieve a list of available menu items.
 
-**Endpoint**: `GET http://127.0.0.1:8000/cart/cart/`
+#### **GET** `http://127.0.0.1:8000/menu/menu-cards/`
 
-This endpoint retrieves the user's current cart, including the items and their quantities.
+- **Description**: Retrieves a list of all menu items.
+- **Method**: `GET`
+- **Response**:
+  - **Status**: `200 OK`
+  - **Data**:
+    ```json
+    [
+      {
+        "id": 1,
+        "name": "Pizza",
+        "description": "Delicious cheese pizza",
+        "price": 12.99,
+        "image": "URL_to_image"
+      },
+      
+    ]
+    ```
 
-### Request
+---
 
-#### URL
-`http://127.0.0.1:8000/cart/cart/`
+### 2. View Cart
+Retrieve cart items for the current user or guest session.
 
-#### Headers
-- **Authorization**: `Token <your_token_here>`
+#### **GET** `http://127.0.0.1:8000/cart/cart/`
 
-#### Response
-
-#### Success Response
-- **Status Code**: `200 OK`
-- **Body**:
-
-```json
-{
-    "cart_items": [
+- **Description**: Fetches all items in the user's or guest's cart.
+- **Method**: `GET`
+- **Response**:
+  - **Status**: `200 OK`
+  - **Data**:
+    ```json
+    {
+      "cart_items": [
         {
-            "id": 2,
-            "menu_item": {
-                "id": 1,
-                "name": "text",
-                "description": "text",
-                "price": "3.00",
-                "image": "/media/menu_images/photo_5864229624928650547_y.jpg"
-            },
-            "quantity": 1,
-            "total_price": 3.0
+          "id": 1,
+          "menu_item": {
+            "id": 1,
+            "name": "Pizza",
+            "description": "Delicious cheese pizza",
+            "price": 12.99,
+            "image": "URL_to_image"
+          },
+          "quantity": 2,
+          "total_price": 25.98
         },
-        {
-            "id": 3,
-            "menu_item": {
-                "id": 2,
-                "name": "text",
-                "description": "text",
-                "price": "34.00",
-                "image": "/media/menu_images/photo_5864229624928650547_y_EarAnev.jpg"
-            },
-            "quantity": 2,
-            "total_price": 68.0
-        }
-    ],
-    "total_items": 3,
-    "total_cart_price": 71.0
-}
-```
-
-#### Error Response (Unauthorized)
-- **Status Code**: `401 Unauthorized`
-- **Body**:
-
-```json
-{
-    "detail": "Authentication credentials were not provided."
-}
-```
+      
+      ],
+      "total_items": 3,
+      "total_cart_price": 50.97
+    }
+    ```
 
 ---
 
- 
+### 3. Add Item to Cart
+Add a menu item to the cart for the current user or guest session.
 
-## **3. Remove Item from Cart**
+#### **POST** `http://127.0.0.1:8000/cart/add-to-cart/`
 
-**URL**: `http://127.0.0.1:8000/cart/remove/<int:item_id>/`
+- **Description**: Adds a specified item to the cart.
+- **Method**: `POST`
+- **Request Body**:
+  - `menu_item` (integer): ID of the menu item to add.
+  - `quantity` (integer, optional): Quantity of the item (default is 1).
+  - **Example**:
+    ```json
+    {
+      "menu_item": 1,
+      "quantity": 2
+    }
+    ```
+- **Response**:
+  - **Status**: `201 Created`
+  - **Data**:
+    ```json
+    {
+      "message": "Item added to cart successfully.",
+      "quantity": 2
+    }
+    ```
 
-**Method**: `DELETE`
+---
 
-**Headers**:
-- `Authorization`: `Bearer <Your-Token>`
+### 4. Remove Item from Cart
+Remove an item from the cart by its cart ID.
 
-**Response**:
-- **Success (204 No Content)**:
-```json
-{
-  "message": "Item removed from cart successfully."
-}
-```
-- **Error (404 Not Found)**:
-```json
-{
-  "error": "Cart item not found."
-}
-```
+#### **DELETE** `http://127.0.0.1:8000/cart/remove/<item_id>/`
 
-**Description**: This endpoint allows a user to remove an item from their cart by providing the `item_id` of the cart item.
+- **Description**: Removes a specified item from the cart.
+- **Method**: `DELETE`
+- **URL Parameter**:
+  - `item_id` (integer): ID of the cart item to remove.
+- **Response**:
+  - **Status**: `204 No Content`
+  - **Data**:
+    ```json
+    {
+      "message": "Item removed from cart successfully."
+    }
+    ```
+
+---
+
+## Models
+
+### 1. Menu Model
+Fields in each menu item:
+- `id`: unique identifier.
+- `name`: name of the menu item.
+- `description`: description of the item.
+- `price`: price of the item.
+- `image`: URL to the image of the item.
+
+### 2. Cart Model
+Fields in each cart item:
+- `user`: reference to the user (nullable for guests).
+- `session_id`: unique session identifier (used for guests).
+- `menu_item`: the item being added.
+- `quantity`: number of units for this item.
+- `total_price`: calculated field (quantity * price).
+
+---
+
+## Notes
+- **Authentication**: Endpoints can be used by both authenticated users and guests.
+- **Session Management**: Guests are tracked using `session_id`.
