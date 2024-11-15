@@ -4,16 +4,14 @@ from rest_framework import status
 from .models import Cart, Menu
 from .serializers import CartSerializer
 from django.db import transaction
-
 class CartView(APIView):
-    # إزالة التحقق من تسجيل الدخول
-
     def get(self, request):
-        # إذا كان المستخدم مسجلاً، استخدم حساب المستخدم، وإلا استخدم الجلسة
         if request.user.is_authenticated:
             carts = Cart.objects.filter(user=request.user)
         else:
-            session_id = request.session.session_key or request.session.create()
+            if not request.session.session_key:
+                request.session.create()
+            session_id = request.session.session_key
             carts = Cart.objects.filter(session_id=session_id)
 
         serializer = CartSerializer(carts, many=True)
@@ -26,12 +24,11 @@ class CartView(APIView):
             'total_cart_price': total_cart_price,
         })
 
-class AddToCartView(APIView):
-    # إزالة التحقق من تسجيل الدخول
 
+class AddToCartView(APIView):
     def post(self, request):
         menu_item_id = request.data.get('menu_item')
-        quantity = request.data.get('quantity', 1)  
+        quantity = request.data.get('quantity', 1)
 
         if not menu_item_id:
             return Response({"error": "Menu item is required."}, status=status.HTTP_400_BAD_REQUEST)
@@ -40,14 +37,16 @@ class AddToCartView(APIView):
             menu_item = Menu.objects.get(id=menu_item_id)
         except Menu.DoesNotExist:
             return Response({"error": "Menu item not found."}, status=status.HTTP_404_NOT_FOUND)
-        
-        # إذا كان المستخدم مسجلاً، استخدم حساب المستخدم، وإلا استخدم الجلسة
+
         if request.user.is_authenticated:
             cart_item, created = Cart.objects.get_or_create(user=request.user, menu_item=menu_item)
         else:
-            session_id = request.session.session_key or request.session.create()
+            # إنشاء session_id إذا لم يكن موجود
+            if not request.session.session_key:
+                request.session.create()
+            session_id = request.session.session_key
             cart_item, created = Cart.objects.get_or_create(session_id=session_id, menu_item=menu_item)
-        
+
         if created:
             cart_item.quantity = quantity
         else:
@@ -58,10 +57,10 @@ class AddToCartView(APIView):
         return Response({"message": "Item added to cart successfully.", "quantity": cart_item.quantity}, status=status.HTTP_201_CREATED)
 
 class RemoveFromCartView(APIView):
-    # إزالة التحقق من تسجيل الدخول
+ 
 
     def delete(self, request, item_id):   
-        # تحديد الجلسة أو المستخدم
+       
         if request.user.is_authenticated:
             try:
                 cart_item = Cart.objects.get(id=item_id, user=request.user)  
