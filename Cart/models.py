@@ -5,7 +5,7 @@ User = get_user_model()
 
 class Cart(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True, related_name="carts")
-    session_id = models.CharField(max_length=255, null=True, blank=True)  # معرف الجلسة
+    session_id = models.CharField(max_length=255, null=True, blank=True)  
     menu_item = models.ForeignKey(Menu, on_delete=models.CASCADE)
     quantity = models.PositiveIntegerField(default=1)
     

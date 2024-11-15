@@ -6,11 +6,9 @@ class CustomUserManager(BaseUserManager):
     def create_user(self, email=None, phone_number=None, password=None, **extra_fields):
         if not email:
             raise ValueError('Email is required.')
-        if not phone_number:
-            raise ValueError('Phone number is required.')
+       
 
-   
-        # تحقق من كلمة السر
+    
         if password and len(password) < 8:
             raise ValueError('Password must be at least 8 characters long.')
 

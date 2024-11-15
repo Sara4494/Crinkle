@@ -17,14 +17,14 @@ class RegisterSerializer(serializers.ModelSerializer):
         if not value:
             raise serializers.ValidationError("Email is required.")
         return value
-
+    
     def validate_phone_number(self, value):
- 
         value = value.replace(" ", "").replace("-", "")
- 
- 
         if len(value) != 11 or not re.match(r'^(010|011|012|015)\d{8}$', value):
             raise serializers.ValidationError("Invalid phone number")
+        return value
+
+     
 
     def validate_password(self, value):
         if len(value) < 8:

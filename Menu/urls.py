@@ -5,3 +5,4 @@ urlpatterns = [
     path('menu-cards/', MenuListView.as_view(), name='menu-cards'),
     
 ]
+
