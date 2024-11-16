@@ -29,23 +29,20 @@ INSTALLED_APPS = [
     'import_export',
 ]
 
-
  
-SESSION_ENGINE = 'django.contrib.sessions.backends.db'
-
  
-SESSION_COOKIE_NAME = 'sessionid'
-
  
-SESSION_COOKIE_SECURE = False  
-
  
-SESSION_COOKIE_HTTPONLY = True  
-
- 
-SESSION_EXPIRE_AT_BROWSER_CLOSE = False  
  
 SESSION_COOKIE_AGE = 1209600  
+CART_SESSION_ID = 'cart_session_id'
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'  
+SESSION_COOKIE_NAME = 'sessionid'  
+SESSION_COOKIE_SECURE = False   
+SESSION_COOKIE_HTTPONLY = True   
+SESSION_COOKIE_SAMESITE = None   
+CORS_ALLOW_CREDENTIALS = True   
+
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",  
@@ -56,13 +53,13 @@ CORS_ALLOWED_ORIGINS = [
 CORS_ALLOW_CREDENTIALS = True
 
  
+ 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.TokenAuthentication',
     ],
 }
  
-
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',  
     'django.middleware.security.SecurityMiddleware',
@@ -142,4 +139,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
  
-CORS_ALLOW_ALL_ORIGINS = True   
+   

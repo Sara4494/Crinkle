@@ -4,14 +4,14 @@ from rest_framework import status
 from .models import Cart, Menu
 from .serializers import CartSerializer
 from django.db import transaction
+from .utils import get_cart_session_id
+
 class CartView(APIView):
     def get(self, request):
         if request.user.is_authenticated:
             carts = Cart.objects.filter(user=request.user)
         else:
-            if not request.session.session_key:
-                request.session.create()
-            session_id = request.session.session_key
+            session_id = get_cart_session_id(request)
             carts = Cart.objects.filter(session_id=session_id)
 
         serializer = CartSerializer(carts, many=True)
