@@ -24,7 +24,6 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'corsheaders',  
     'users',
-    'Cart',
     'Menu',
     'import_export',
 ]
