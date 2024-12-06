@@ -120,4 +120,41 @@
   
 ---
 
+## API for Logout
+
+### Endpoint: Logout
+- **URL:** `sara32.pythonanywhere.com/users/logout/`
+- **Method:** `POST`
+- **Description:** This endpoint is used to log out the user by invalidating the authentication token.
+
+### Request
+
+#### Headers:
+- `Authorization`: The user's token in the format `Token <your_token>`
+
+  **Example:**
+
+
+#### Response
+
+- **Status:** `200 OK` (Successful Logout)
+- **Response Body:**
+  ```json
+  {
+    "message": "Logout successful."
+  }
+  ```
+
+- **Status:** `401 Unauthorized` (Invalid or Expired Token)
+- **Response Body:**
+  ```json
+  {
+    "message": "Invalid or expired token."
+  }
+  ```
+
+### Example Request
+
+**Request:**
+
  
